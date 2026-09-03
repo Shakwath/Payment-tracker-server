@@ -1,42 +1,52 @@
 {
   "name": "payment-tracker-server",
   "version": "1.0.0",
-  "description": "Backend server for Payment Tracker",
+  "description": "Enterprise Backend Server for Madrasa Payment Tracker",
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "seed": "tsx src/utils/seeder.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "madrasa",
+    "payment-tracker",
+    "express",
+    "typescript",
+    "mongodb",
+    "mongoose",
+    "finance",
+    "pdfkit"
+  ],
+  "author": "Shakwath",
   "license": "ISC",
-  "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/cookie-parser": "^1.4.10",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/morgan": "^1.9.10",
-    "@types/multer": "^2.2.0",
-    "@types/node": "^22.0.0",
-    "@types/pdfkit": "^0.17.6",
-    "tsx": "^4.19.0",
-    "typescript": "^5.6.0"
-  },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "express-rate-limit": "^8.7.0",
-    "helmet": "^8.3.0",
+    "express-rate-limit": "^8.3.1",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.9.4",
-    "morgan": "^1.12.0",
-    "multer": "^2.3.0",
-    "pdfkit": "^0.20.2",
-    "zod": "^4.5.4"
+    "mongoose": "^9.2.4",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "pdfkit": "^0.17.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/morgan": "^1.9.10",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.19.15",
+    "@types/pdfkit": "^0.17.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }
