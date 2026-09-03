@@ -14,6 +14,9 @@ import { guardianRoutes } from './modules/guardian/guardian.route';
 import { studentRoutes } from './modules/student/student.route';
 import { feeRoutes } from './modules/fee/fee.route';
 import { paymentRoutes } from './modules/payment/payment.route';
+import { expenseRoutes } from './modules/expense/expense.route';
+import { teacherRoutes } from './modules/teacher/teacher.route';
+import { salaryRoutes } from './modules/salary/salary.route';
 
 const app: Application = express();
 
@@ -62,6 +65,9 @@ app.use('/api/guardians', guardianRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/fees', feeRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/expenses', expenseRoutes);
+app.use('/api/teachers', teacherRoutes);
+app.use('/api/teacher-salaries', salaryRoutes);
 
 // Error Handlers
 app.use(notFoundHandler);
