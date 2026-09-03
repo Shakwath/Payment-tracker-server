@@ -7,6 +7,8 @@ import path from 'node:path';
 import { env } from './config/env';
 import { globalErrorHandler, notFoundHandler } from './middlewares/error.middleware';
 import { apiRateLimiter } from './middlewares/rateLimiter.middleware';
+import { authRoutes } from './modules/auth/auth.route';
+import { userRoutes } from './modules/user/user.route';
 
 const app: Application = express();
 
@@ -47,7 +49,9 @@ app.get('/', (_req, res) => {
   });
 });
 
-// Route registration placeholder (will be populated with modules)
+// Register Module Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
 // Error Handlers
 app.use(notFoundHandler);
