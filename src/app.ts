@@ -21,6 +21,7 @@ import { resultRoutes } from './modules/result/result.route';
 import { notificationRoutes } from './modules/notification/notification.route';
 import { auditRoutes } from './modules/audit/audit.route';
 import { settingRoutes } from './modules/setting/setting.route';
+import { dashboardRoutes } from './modules/dashboard/dashboard.route';
 
 const app: Application = express();
 
@@ -76,6 +77,7 @@ app.use('/api/results', resultRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/audit-logs', auditRoutes);
 app.use('/api/settings', settingRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 // Error Handlers
 app.use(notFoundHandler);
