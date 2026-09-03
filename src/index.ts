@@ -1,18 +1,36 @@
-import http from 'node:http';
+import app from './app';
+import { env } from './config/env';
+import { connectDatabase } from './config/database';
 
-const PORT = process.env.PORT || 5000;
+const startServer = async () => {
+  try {
+    // Connect Database
+    await connectDatabase();
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.end(
-    JSON.stringify({
-      status: 'success',
-      message: 'Payment Tracker Server is running with TypeScript! 🚀',
-      timestamp: new Date().toISOString(),
-    })
-  );
-});
+    // Start Express Server
+    const server = app.listen(env.PORT, () => {
+      console.log(`🚀 Madrasa Payment Tracker Server is running at http://localhost:${env.PORT}`);
+      console.log(`📡 Environment: ${env.NODE_ENV}`);
+    });
 
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+    // Handle Uncaught Exceptions & Unhandled Rejections
+    process.on('unhandledRejection', (reason: any) => {
+      console.error('💥 Unhandled Rejection:', reason);
+      server.close(() => {
+        process.exit(1);
+      });
+    });
+
+    process.on('uncaughtException', (err: Error) => {
+      console.error('💥 Uncaught Exception:', err);
+      server.close(() => {
+        process.exit(1);
+      });
+    });
+  } catch (error) {
+    console.error('❌ Server startup error:', error);
+    process.exit(1);
+  }
+};
+
+startServer();
