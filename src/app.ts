@@ -13,6 +13,7 @@ import { semesterRoutes } from './modules/semester/semester.route';
 import { guardianRoutes } from './modules/guardian/guardian.route';
 import { studentRoutes } from './modules/student/student.route';
 import { feeRoutes } from './modules/fee/fee.route';
+import { paymentRoutes } from './modules/payment/payment.route';
 
 const app: Application = express();
 
@@ -60,6 +61,7 @@ app.use('/api/semesters', semesterRoutes);
 app.use('/api/guardians', guardianRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/fees', feeRoutes);
+app.use('/api/payments', paymentRoutes);
 
 // Error Handlers
 app.use(notFoundHandler);
