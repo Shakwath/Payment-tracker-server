@@ -17,6 +17,10 @@ import { paymentRoutes } from './modules/payment/payment.route';
 import { expenseRoutes } from './modules/expense/expense.route';
 import { teacherRoutes } from './modules/teacher/teacher.route';
 import { salaryRoutes } from './modules/salary/salary.route';
+import { resultRoutes } from './modules/result/result.route';
+import { notificationRoutes } from './modules/notification/notification.route';
+import { auditRoutes } from './modules/audit/audit.route';
+import { settingRoutes } from './modules/setting/setting.route';
 
 const app: Application = express();
 
@@ -68,6 +72,10 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/teachers', teacherRoutes);
 app.use('/api/teacher-salaries', salaryRoutes);
+app.use('/api/results', resultRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/audit-logs', auditRoutes);
+app.use('/api/settings', settingRoutes);
 
 // Error Handlers
 app.use(notFoundHandler);
