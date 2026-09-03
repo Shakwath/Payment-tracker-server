@@ -9,6 +9,10 @@ import { globalErrorHandler, notFoundHandler } from './middlewares/error.middlew
 import { apiRateLimiter } from './middlewares/rateLimiter.middleware';
 import { authRoutes } from './modules/auth/auth.route';
 import { userRoutes } from './modules/user/user.route';
+import { semesterRoutes } from './modules/semester/semester.route';
+import { guardianRoutes } from './modules/guardian/guardian.route';
+import { studentRoutes } from './modules/student/student.route';
+import { feeRoutes } from './modules/fee/fee.route';
 
 const app: Application = express();
 
@@ -52,6 +56,10 @@ app.get('/', (_req, res) => {
 // Register Module Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/semesters', semesterRoutes);
+app.use('/api/guardians', guardianRoutes);
+app.use('/api/students', studentRoutes);
+app.use('/api/fees', feeRoutes);
 
 // Error Handlers
 app.use(notFoundHandler);
